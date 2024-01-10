@@ -11,18 +11,21 @@ const defaultDataOnLoad = [
 const MAX_CONTRAST_VALUE = 21;
 
 const ColorContrast = () => {
+  const [bgColor, setBgColor] = useState('#000');
+  const [fgColor, setFgColor] = useState('#fff');
+
   const bgColorRef: any = useRef<HTMLInputElement>(null);
   const fgColorRef: any = useRef<HTMLInputElement>(null);
+
+  const bgPickColorRef: any = useRef<HTMLInputElement>(null);
+  const fgPickColorRef: any = useRef<HTMLInputElement>(null);
 
   const [contrasts, setContrasts]: any = useState(defaultDataOnLoad);
   const [colorContrastValue, setColorContrastValue] =
     useState(MAX_CONTRAST_VALUE);
 
-  const calculateContrast = () => {
+  const calculateContrast = (bg, fg) => {
     const ccc = new ColorContrastChecker();
-
-    const bg = bgColorRef.current?.value;
-    const fg = fgColorRef.current?.value;
 
     const pairs = [
       {
@@ -42,6 +45,9 @@ const ColorContrast = () => {
 
     setColorContrastValue(parseInt(colorContrastValue));
     setContrasts(results);
+    console.log(bg);
+    setBgColor(bg);
+    setFgColor(fg);
   };
 
   // Rerender function
@@ -52,9 +58,11 @@ const ColorContrast = () => {
   }
 
   const invertValues = () => {
-    const storedValues = [bgColorRef.current?.value, fgColorRef.current?.value];
-    fgColorRef.current.value = storedValues[0];
-    bgColorRef.current.value = storedValues[1];
+    setBgColor(fgColor);
+    setFgColor(bgColor);
+
+    bgColorRef.current.value = fgColor;
+    fgColorRef.current.value = bgColor;
     forceRerender();
   };
 
@@ -137,16 +145,26 @@ const ColorContrast = () => {
             <input
               type="text"
               placeholder="#000000"
-              defaultValue="#000000"
-              value={bgColorRef.current?.value ?? '#000000'}
+              defaultValue={bgColorRef.current?.value ?? '#000000'}
               ref={bgColorRef}
-              onKeyUp={() => calculateContrast()}
+              onKeyUp={() =>
+                calculateContrast(
+                  bgColorRef.current?.value,
+                  fgColorRef.current?.value
+                )
+              }
             />
             <input
               type="color"
               defaultValue="#000000"
-              ref={bgColorRef}
-              onInput={() => calculateContrast()}
+              ref={bgPickColorRef}
+              onInput={() => {
+                calculateContrast(
+                  bgPickColorRef.current?.value,
+                  fgPickColorRef.current?.value
+                );
+                bgColorRef.current.value = bgPickColorRef.current?.value;
+              }}
             />
           </label>
         </div>
@@ -175,17 +193,27 @@ const ColorContrast = () => {
             <input
               type="text"
               placeholder="#ffffff"
-              defaultValue="#ffffff"
-              value={fgColorRef.current?.value ?? '#ffffff'}
+              defaultValue={fgColorRef.current?.value ?? '#ffffff'}
               ref={fgColorRef}
-              onKeyUp={() => calculateContrast()}
+              onKeyUp={() =>
+                calculateContrast(
+                  bgColorRef.current?.value,
+                  fgColorRef.current?.value
+                )
+              }
             />
 
             <input
               type="color"
               defaultValue="#ffffff"
-              ref={fgColorRef}
-              onInput={() => calculateContrast()}
+              ref={fgPickColorRef}
+              onInput={() => {
+                calculateContrast(
+                  bgPickColorRef.current?.value,
+                  fgPickColorRef.current?.value
+                );
+                fgColorRef.current.value = fgPickColorRef.current?.value;
+              }}
             />
           </label>
         </div>
@@ -196,8 +224,8 @@ const ColorContrast = () => {
           <h3>Normal Text (16px)</h3>
           <div
             style={{
-              background: `${bgColorRef.current?.value ?? '#000'}`,
-              color: `${fgColorRef.current?.value ?? '#FFF'}`,
+              background: `${bgColor ?? '#000'}`,
+              color: `${fgColor ?? '#FFF'}`,
               padding: '15px',
               marginTop: '8px',
               borderRadius: '0.75rem',
@@ -213,8 +241,8 @@ const ColorContrast = () => {
           <h3>Large Text (32px)</h3>
           <div
             style={{
-              background: `${bgColorRef.current?.value ?? '#000'}`,
-              color: `${fgColorRef.current?.value ?? '#FFF'}`,
+              background: `${bgColor ?? '#000'}`,
+              color: `${fgColor ?? '#FFF'}`,
               padding: '25px',
               marginTop: '12px',
               borderRadius: '0.75rem',
