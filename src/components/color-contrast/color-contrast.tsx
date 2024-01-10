@@ -11,8 +11,8 @@ const defaultDataOnLoad = [
 const MAX_CONTRAST_VALUE = 21;
 
 const ColorContrast = () => {
-  const [bgColor, setBgColor] = useState('#000');
-  const [fgColor, setFgColor] = useState('#fff');
+  const [bgColor, setBgColor] = useState('#000000');
+  const [fgColor, setFgColor] = useState('#FFFFFF');
 
   const bgColorRef: any = useRef<HTMLInputElement>(null);
   const fgColorRef: any = useRef<HTMLInputElement>(null);
@@ -45,17 +45,9 @@ const ColorContrast = () => {
 
     setColorContrastValue(parseInt(colorContrastValue));
     setContrasts(results);
-    console.log(bg);
     setBgColor(bg);
     setFgColor(fg);
   };
-
-  // Rerender function
-  // This is used because the color blocks are not updated
-  const [, setRerenderState] = useState(false);
-  function forceRerender() {
-    setRerenderState((prev) => !prev);
-  }
 
   const invertValues = () => {
     setBgColor(fgColor);
@@ -63,7 +55,6 @@ const ColorContrast = () => {
 
     bgColorRef.current.value = fgColor;
     fgColorRef.current.value = bgColor;
-    forceRerender();
   };
 
   return (
@@ -156,12 +147,9 @@ const ColorContrast = () => {
       <div className={styles.colorContrastForm}>
         <div className={styles.labelContainer}>
           <div
+            className={styles.colorBlock}
             style={{
               background: `${bgColorRef.current?.value ?? '#000000'}`,
-              width: 80,
-              height: 80,
-              border: '1px solid #DDD',
-              borderRadius: '0.75rem',
             }}
           ></div>
           <label>
@@ -180,7 +168,7 @@ const ColorContrast = () => {
             />
             <input
               type="color"
-              defaultValue="#000000"
+              defaultValue={bgPickColorRef.current?.value ?? '#000000'}
               ref={bgPickColorRef}
               onInput={() => {
                 calculateContrast(
@@ -203,12 +191,9 @@ const ColorContrast = () => {
 
         <div className={styles.labelContainer}>
           <div
+            className={styles.colorBlock}
             style={{
               background: `${fgColorRef.current?.value ?? '#ffffff'}`,
-              width: 80,
-              height: 80,
-              border: '1px solid #DDD',
-              borderRadius: '0.75rem',
             }}
           ></div>
 
@@ -217,7 +202,7 @@ const ColorContrast = () => {
             <input
               type="text"
               placeholder="#ffffff"
-              defaultValue={fgColorRef.current?.value ?? '#ffffff'}
+              defaultValue={fgPickColorRef.current?.value ?? '#ffffff'}
               ref={fgColorRef}
               onKeyUp={() =>
                 calculateContrast(
@@ -226,10 +211,9 @@ const ColorContrast = () => {
                 )
               }
             />
-
             <input
               type="color"
-              defaultValue="#ffffff"
+              defaultValue={fgColorRef.current?.value ?? '#ffffff'}
               ref={fgPickColorRef}
               onInput={() => {
                 calculateContrast(
@@ -247,14 +231,12 @@ const ColorContrast = () => {
         <div className={styles.demostrationCardTop}>
           <h3>Normal Text (16px)</h3>
           <div
+            className={styles.demostrationText}
             style={{
-              background: `${bgColor ?? '#000'}`,
-              color: `${fgColor ?? '#FFF'}`,
-              padding: '15px',
-              marginTop: '8px',
-              borderRadius: '0.75rem',
+              background: `${bgColorRef.current?.value ?? '#000000'}`,
+              color: `${fgColorRef.current?.value ?? '#FFFFFF'}`,
               fontSize: '16px',
-              transition: 'all .2s',
+              padding: '16px',
             }}
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -264,14 +246,12 @@ const ColorContrast = () => {
         <div className={styles.demostrationCard}>
           <h3>Large Text (32px)</h3>
           <div
+            className={styles.demostrationText}
             style={{
-              background: `${bgColor ?? '#000'}`,
-              color: `${fgColor ?? '#FFF'}`,
-              padding: '25px',
-              marginTop: '12px',
-              borderRadius: '0.75rem',
+              background: `${bgColorRef.current?.value ?? '#000000'}`,
+              color: `${fgColorRef.current?.value ?? '#FFFFFF'}`,
               fontSize: '32px',
-              transition: 'all .2s',
+              padding: '24px',
             }}
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit.

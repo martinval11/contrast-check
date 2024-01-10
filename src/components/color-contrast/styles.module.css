@@ -4,7 +4,7 @@
   padding: 25px;
   border-radius: 0.75rem;
   min-height: 9rem;
-  background: #fff;
+  background: var(--box-background);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 
   & div {
@@ -16,7 +16,7 @@
   }
 
   & div:first-child {
-    border-right: 1px solid #e9e9e9;
+    border-right: 1px solid var(--content-relation-first-div);
   }
 }
 
@@ -33,12 +33,12 @@
 
 .pass,
 .passContrastRelation {
-  color: #26a16a;
+  color: var(--pass-color);
 }
 
 .fail,
 .failContrastRelation {
-  color: #da1927;
+  color: var(--fail-color);
 }
 
 .passResult {
@@ -50,8 +50,8 @@
     display: flex;
     align-items: center;
     font-size: 18px;
-    color: #0b4a34;
-    background: #d7f5ea;
+    color: var(--pass-badge-color);
+    background: var(--pass-badge-background);
     font-weight: 700;
     padding: 8px 16px;
     border-radius: 8px;
@@ -67,8 +67,8 @@
     display: flex;
     align-items: center;
     font-size: 18px;
-    color: #651c1c;
-    background: #ffecec;
+    color: var(--fail-badge-color);
+    background: var(--fail-badge-background);
     font-weight: 700;
     padding: 8px 16px;
     border-radius: 8px;
@@ -82,7 +82,7 @@
   padding: 25px;
   margin-top: 20px;
   border-radius: 0.75rem;
-  background: #fff;
+  background: var(--box-background);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 
   & label {
@@ -112,12 +112,20 @@
   gap: 16px;
 }
 
+.colorBlock {
+  border: 1px solid;
+  border-color: #fff;
+  width: var(--color-block-size);
+  height: var(--color-block-size);
+  border-radius: 0.75rem;
+}
+
 .demostrationContainer {
   padding: 25px;
   margin-top: 20px;
   margin-bottom: 32px;
   border-radius: 0.75rem;
-  background: #fff;
+  background: var(--box-background);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
@@ -125,9 +133,20 @@
   margin-bottom: 24px;
 }
 
+.demostrationText {
+  margin-top: 12px;
+  border-radius: 0.75rem;
+  transition: all 0.2s;
+}
+
 .invertValuesButton {
   background: transparent;
-  border: 1px solid #bacdcd;
+  border: var(--border-button);
+}
+
+.invertValuesButton {
+  background: transparent;
+  border: var(--border-button);
   padding: 16px;
   border-radius: 50%;
   display: flex;
@@ -142,7 +161,7 @@
 
   &:hover {
     cursor: pointer;
-    background: #bacdcd;
+    background: var(--hover-button);
   }
 }
 
@@ -167,9 +186,8 @@
 }
 
 @media (width < 412px) {
-  .labelContainer div {
-    width: 40px !important;
-    height: 40px !important;
+  .colorBlock {
+    --color-block-size: 40px;
   }
 }
 
@@ -177,25 +195,25 @@
   .contrastRelationSection,
   .colorContrastForm,
   .demostrationContainer {
-    background: #1d3939;
+    --box-background: #1d3939;
   }
 
   .contrastRelationSection div:first-child {
-    border-right: 1px solid #4d6767;
+    --content-relation-first-div: #4d6767;
   }
 
-  .labelContainer div {
+  .labelContainer .colorBlock {
     border-color: #1d3939 !important;
   }
 
   .fail,
   .failContrastRelation {
-    color: #f61525;
+    --fail-color: #f61525;
   }
 
   .pass,
   .passContrastRelation {
-    color: #12e285;
+    --pass-color: #12e285;
   }
 
   .invertValuesButton {
@@ -208,12 +226,12 @@
   }
 
   .passBadge {
-    color: #12e285 !important;
-    background: #152d2d !important;
+    --pass-badge-color: #12e285;
+    --pass-badge-background: #152d2d;
   }
 
   .failBadge {
-    color: #f44336 !important;
-    background: #2d1515 !important;
+    --fail-badge-color: #f44336;
+    --fail-badge-background: #2d1515;
   }
 }
