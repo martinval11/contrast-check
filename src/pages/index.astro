@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import ColorContrast from '../components/color-contrast/color-contrast.tsx';
+---
+
+<Layout title='Contrast Checker'>
+  <Nav />
+  <main>
+    <ColorContrast client:idle />
+    <Footer />
+	</main>
+</Layout>
+
+<style>
+  main {
+    padding: 1rem 4rem;
+  }
+
+  @media (width < 664px) {
+    main {
+      padding: 1rem;
+    }
+  }
+</style>
