@@ -12,6 +12,7 @@
     flex-direction: column;
     width: 100%;
     padding: 0 25px;
+    gap: 5px;
   }
 
   & div:first-child {
@@ -38,6 +39,40 @@
 .fail,
 .failContrastRelation {
   color: #da1927;
+}
+
+.passResult {
+  font-size: 32px;
+  display: flex;
+  justify-content: space-between;
+
+  & .passBadge {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: #0b4a34;
+    background: #d7f5ea;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 8px;
+  }
+}
+
+.failResult {
+  font-size: 32px;
+  display: flex;
+  justify-content: space-between;
+
+  & .failBadge {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: #651c1c;
+    background: #ffecec;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 8px;
+  }
 }
 
 .colorContrastForm {
@@ -68,7 +103,7 @@
 }
 
 .colorContrastValue {
-  font-size: 40px;
+  font-size: 48px;
 }
 
 .labelContainer {
@@ -91,17 +126,23 @@
 }
 
 .invertValuesButton {
-  background: #dde3eb;
-  border: none;
+  background: transparent;
+  border: 1px solid #bacdcd;
   padding: 16px;
   border-radius: 50%;
-  height: 48px;
+  display: flex;
+  align-items: center;
   outline: none;
-  transition: background 0.2s;
+  transition: all 0.2s;
+
+  & svg {
+    width: 24px;
+    height: 24px;
+  }
 
   &:hover {
     cursor: pointer;
-    background: #c8d3e0;
+    background: #bacdcd;
   }
 }
 
@@ -118,6 +159,10 @@
   .colorContrastForm {
     flex-direction: column;
     gap: 24px;
+  }
+
+  .contrastRelationSection div:first-child {
+    border-right: none !important;
   }
 }
 
@@ -136,18 +181,39 @@
   }
 
   .contrastRelationSection div:first-child {
-    border-right: transparent;
+    border-right: 1px solid #4d6767;
   }
 
   .labelContainer div {
     border-color: #1d3939 !important;
   }
 
-  .fail, .failContrastRelation {
-    color: #F61525;
+  .fail,
+  .failContrastRelation {
+    color: #f61525;
   }
 
-  .pass, .passContrastRelation {
-    color: #2DD58A;
+  .pass,
+  .passContrastRelation {
+    color: #12e285;
+  }
+
+  .invertValuesButton {
+    color: #fff;
+    border-color: #4d6767 !important;
+
+    &:hover {
+      background: #4d6767;
+    }
+  }
+
+  .passBadge {
+    color: #12e285 !important;
+    background: #152d2d !important;
+  }
+
+  .failBadge {
+    color: #f44336 !important;
+    background: #2d1515 !important;
   }
 }

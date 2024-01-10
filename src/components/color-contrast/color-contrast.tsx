@@ -24,7 +24,7 @@ const ColorContrast = () => {
   const [colorContrastValue, setColorContrastValue] =
     useState(MAX_CONTRAST_VALUE);
 
-  const calculateContrast = (bg, fg) => {
+  const calculateContrast = (bg: any, fg: any) => {
     const ccc = new ColorContrastChecker();
 
     const pairs = [
@@ -98,33 +98,57 @@ const ColorContrast = () => {
         <div>
           <small className={styles.bold}>Normal Text</small>
           {contrasts[0]?.WCAG_AA ? (
-            <span className={styles.pass}>AA Pass</span>
+            <span className={styles.passResult}>
+              <b>AA</b>
+              <span className={styles.passBadge}>Pass</span>
+            </span>
           ) : null}
           {contrasts[0]?.WCAG_AAA ? (
-            <span className={styles.pass}>AAA Pass</span>
+            <span className={styles.passResult}>
+              <b>AAA</b>
+              <span className={styles.passBadge}>Pass</span>
+            </span>
           ) : null}
 
           {contrasts[0]?.WCAG_AA === false ? (
-            <span className={styles.fail}>AA Fail</span>
+            <span className={styles.failResult}>
+              <b>AA</b>
+              <span className={styles.failBadge}>Fail</span>
+            </span>
           ) : null}
           {contrasts[0]?.WCAG_AAA === false ? (
-            <span className={styles.fail}>AAA Fail</span>
+            <span className={styles.failResult}>
+              <b>AAA</b>
+              <span className={styles.failBadge}>Fail</span>
+            </span>
           ) : null}
         </div>
 
         <div>
           <small className={styles.bold}>Large Text</small>
           {contrasts[1]?.WCAG_AA ? (
-            <span className={styles.pass}>AA Pass</span>
+            <span className={styles.passResult}>
+              <b>AA</b>
+              <span className={styles.passBadge}>Pass</span>
+            </span>
           ) : null}
           {contrasts[1]?.WCAG_AAA ? (
-            <span className={styles.pass}>AAA Pass</span>
+            <span className={styles.passResult}>
+              <b>AAA</b>
+              <span className={styles.passBadge}>Pass</span>
+            </span>
           ) : null}
           {contrasts[1]?.WCAG_AA === false ? (
-            <span className={styles.fail}>AA Fail</span>
+            <span className={styles.failResult}>
+              <b>AA</b>
+              <span className={styles.failBadge}>Fail</span>
+            </span>
           ) : null}
           {contrasts[1]?.WCAG_AAA === false ? (
-            <span className={styles.fail}>AAA Fail</span>
+            <span className={styles.failResult}>
+              <b>AAA</b>
+              <span className={styles.failBadge}>Fail</span>
+            </span>
           ) : null}
         </div>
       </section>
