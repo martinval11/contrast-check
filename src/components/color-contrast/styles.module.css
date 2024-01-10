@@ -30,11 +30,13 @@
   font-size: 2rem;
 }
 
-.pass, .passContrastRelation {
+.pass,
+.passContrastRelation {
   color: #26a16a;
 }
 
-.fail, .failContrastRelation {
+.fail,
+.failContrastRelation {
   color: #da1927;
 }
 
@@ -89,17 +91,17 @@
 }
 
 .invertValuesButton {
-  background: #DDE3EB;
+  background: #dde3eb;
   border: none;
   padding: 16px;
   border-radius: 50%;
   height: 48px;
   outline: none;
-  transition: background .2s;
+  transition: background 0.2s;
 
   &:hover {
     cursor: pointer;
-    background: #C8D3E0;
+    background: #c8d3e0;
   }
 }
 
@@ -123,5 +125,29 @@
   .labelContainer div {
     width: 40px !important;
     height: 40px !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .contrastRelationSection,
+  .colorContrastForm,
+  .demostrationContainer {
+    background: #1d3939;
+  }
+
+  .contrastRelationSection div:first-child {
+    border-right: transparent;
+  }
+
+  .labelContainer div {
+    border-color: #1d3939 !important;
+  }
+
+  .fail, .failContrastRelation {
+    color: #F61525;
+  }
+
+  .pass, .passContrastRelation {
+    color: #2DD58A;
   }
 }
