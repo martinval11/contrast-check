@@ -114,7 +114,7 @@
 
 .colorBlock {
   border: 1px solid;
-  border-color: #fff;
+  border-color: var(--button-border-color);
   width: var(--color-block-size);
   height: var(--color-block-size);
   border-radius: 0.75rem;
@@ -147,6 +147,7 @@
 .invertValuesButton {
   background: transparent;
   border: var(--border-button);
+  border-color: var(--button-border-color);
   padding: 16px;
   border-radius: 50%;
   display: flex;
@@ -218,10 +219,10 @@
 
   .invertValuesButton {
     color: #fff;
-    border-color: #4d6767 !important;
+    --button-border-color: #4d6767;
 
     &:hover {
-      background: #4d6767;
+      --hover-button: #4d6767;
     }
   }
 

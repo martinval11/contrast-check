@@ -45,7 +45,7 @@
 
   a {
     text-decoration: none;
-    color: #090909;
+    color: var(--link-color);
     transition: opacity 0.2s;
 
     &:hover {
@@ -61,7 +61,7 @@
 
   @media (prefers-color-scheme: dark) {
     nav, a {
-      color: #fff;
+      --link-color: #FFFFFF;
     }
   }
 </style>
