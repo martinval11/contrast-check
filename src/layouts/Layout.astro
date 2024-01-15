@@ -15,8 +15,17 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.webp" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-    <meta name="author" content="Martínval11" />
+    <meta name="author" content="Martín Valdez" />
     <meta name="robots" content="index, follow" />
+    <link rel="apple-touch-icon" href="/favicon.webp" />
+    <meta property="og:url" content="https://contrastcheck.vercel.app/" />
+    <meta property="og:site_name" content="Contrast Check" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="/favicon.webp" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:domain" content="https://contrastcheck.vercel.app" />
+    <meta name="twitter:title" property="og:title" itemprop="name" content="Contrast Check" />
+    <meta name="twitter:description" property="og:description" itemprop="description" content="Check color contrast" />
 	</head>
 	<body>
 		<slot />
