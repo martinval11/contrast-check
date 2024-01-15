@@ -1,7 +1,7 @@
 # Constrast Check
 Check the constrast of your background and foreground colors
 
-![Screenshot](https://github.com/martinval11/contrast-checker/blob/main/screenshot.png?raw=true)
+![Screenshot](https://github.com/martinval11/contrast-checker/blob/main/images/screenshot.png?raw=true)
 
 ## Setup
 Clone the repo:
