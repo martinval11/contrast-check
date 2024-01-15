@@ -6,7 +6,7 @@ Check the constrast of your background and foreground colors
 ## Setup
 Clone the repo:
 ```sh
-git clone https://github.com/martinval11/contrast-checker
+git clone https://github.com/martinval11/contrast-check
 ```
 
 Install the dependencies using `bun`:
@@ -21,10 +21,10 @@ bun dev
 ```
 
 # Tech Stack
-- Astro
-- Preact
-- TypeScript
-- Bun
+- [Astro](https://astro.build/)
+- [Preact](https://preactjs.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Bun](https://bun.sh/)
 
 ## License
-MIT
+[MIT](https://github.com/martinval11/contrast-checker/blob/main/LICENSE)
