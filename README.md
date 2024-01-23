@@ -56,7 +56,7 @@ cd contrast-check
 $ bun install # or npm install
 ```
 
-### 🤖 Running Palette Helper
+### 🤖 Running Contrast Check
 
 Use the following command to start the project:
 
