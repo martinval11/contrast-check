@@ -18,7 +18,7 @@
 
 > - [🚀 Getting Started](#-getting-started)
 >   - [⚙️ Installation](#️-installation)
->   - [🤖 Running Palette Helper](#🤖-running-palette-helper)
+>   - [🤖 Running Palette Helper](#🤖-running-contrast-check)
 > - [🤝 Contributing](#-contributing)
 > - [📄 License](#-license)
 
