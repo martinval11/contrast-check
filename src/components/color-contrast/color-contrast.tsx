@@ -153,7 +153,7 @@ const ColorContrast = () => {
             }}
           ></div>
           <label>
-            <b>Background Color</b>
+            <h2>Background Color</h2>
             <input
               type="text"
               placeholder="#000000"
@@ -198,7 +198,7 @@ const ColorContrast = () => {
           ></div>
 
           <label>
-            <b>Text Color</b>
+            <h2>Text Color</h2>
             <input
               type="text"
               placeholder="#ffffff"
