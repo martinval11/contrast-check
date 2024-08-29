@@ -11,14 +11,14 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.4.1",
-    "@astrojs/preact": "^3.1.0",
-    "astro": "^4.1.1",
+    "@astrojs/preact": "^3.5.2",
+    "astro": "^4.15.1",
     "color-contrast": "^1.0.0",
     "color-contrast-checker": "^2.1.0",
-    "esbuild": "^0.19.11",
-    "preact": "^10.19.3",
-    "sharp": "^0.33.1",
-    "typescript": "^5.3.3"
+    "esbuild": "^0.19.12",
+    "preact": "^10.23.2",
+    "sharp": "^0.33.5",
+    "typescript": "^5.5.4"
   },
   "trustedDependencies": ["sharp", "esbuild"]
 }
